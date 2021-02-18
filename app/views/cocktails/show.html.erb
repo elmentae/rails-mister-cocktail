@@ -1,15 +1,15 @@
 <h2> <%= @cocktail.name %> </h2>
 
 <div class="container">
-  <ul class="list-group-unstyled">
-    <% @cocktail.ingredients do |ingredient| %>
-      <li class="list-group-item"><%= ingredient %></li>
+  <ul class="list-group">
+    <% @cocktail.ingredients.each do |ingredient| %>
+      <li class="list-group-item"><%= ingredient.name %></li>
     <% end %>
   </ul>
 
-  <ul class="list-group-unstyled">
-    <% @cocktail.doses do |dose| %>
-      <li class="list-group-item"><%= dose %></li>
+  <ul class="list-group">
+    <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item"><%= dose.description %></li>
     <% end %>
   </ul>
 </div>
@@ -20,4 +20,5 @@
 <br>
 <br>
 <hr>
-<p> <%= link_to "⬅", cocktails_path %> </p>
+<p> <%= link_to "❌", cocktail_path(@cocktail), method: :delete %> </p>
+<p> <%= link_to "⬅", root_path %> </p>
