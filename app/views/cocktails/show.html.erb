@@ -1,0 +1,23 @@
+<h2> <%= @cocktail.name %> </h2>
+
+<div class="container">
+  <ul class="list-group-unstyled">
+    <% @cocktail.ingredients do |ingredient| %>
+      <li class="list-group-item"><%= ingredient %></li>
+    <% end %>
+  </ul>
+
+  <ul class="list-group-unstyled">
+    <% @cocktail.doses do |dose| %>
+      <li class="list-group-item"><%= dose %></li>
+    <% end %>
+  </ul>
+</div>
+<p> <%= link_to "➕ Add Ingredients & Doses", new_cocktail_dose_path(@cocktail) %> </p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<p> <%= link_to "⬅", cocktails_path %> </p>

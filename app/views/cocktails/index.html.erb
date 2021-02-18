@@ -1,0 +1,16 @@
+<h2>Here are the cocktails!</h2>
+<p> <%= link_to "➕ Add new cocktail", new_cocktail_path %> </p>
+
+<div class="row">
+
+  <% @cocktail.each do |cocktail| %>
+    <div class="col-lg-3 py-2">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to cocktail.name, cocktail_path(cocktail), class: "card-link text-white" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+
