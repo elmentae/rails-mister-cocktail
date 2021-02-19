@@ -1,9 +1,10 @@
 <%# NAVBAR %>
+<%# logo on the left %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://cdn4.iconfinder.com/data/icons/business-characters-3/66/55-512.png", class: "avatar rounded-circle" %>
   <% end %>
-
+<%# button on the right %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="btn btn-primary rounded">
@@ -24,10 +25,10 @@
         <div class="card-category" style="background-image: url(
           <% if cocktail.photo.attached? %>
             <%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-          <% elsif !cocktail.image_url.nil? %>
+          <% elsif cocktail.image_url != "" %>
             <%= cocktail.image_url %>
           <% else %>
-            <%= image_path("default.jpg") %>
+            <%= image_path('default.jpg') %>
           <% end %>
           )">
           <%= cocktail.name %>
@@ -37,6 +38,3 @@
     <% end %>
   </div>
 </div>
-
-
-<%# <%= cocktail.image_url %>
