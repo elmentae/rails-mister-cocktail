@@ -1,4 +1,6 @@
 class CocktailsController < ApplicationController
+  before_action :default_image
+
   def index
     @cocktail = Cocktail.all
   end
@@ -27,6 +29,10 @@ class CocktailsController < ApplicationController
   end
 
   private
+
+  def default_image
+    @def_img = "https://i.ytimg.com/vi/zAVGfPSnGaw/maxresdefault.jpg"
+  end
 
   def cocktail_params
     params.require(:cocktail).permit(:name, :image_url, :description, :photo)

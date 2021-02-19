@@ -21,7 +21,15 @@
     <%# INDIVIDUAL CARDS %>
       <div class="col-lg-3 py-2">
       <%= link_to cocktail_path(cocktail), class: "text-white text-decoration-none" do %>
-        <div class="card-category" style="background-image: url(<%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %> )">
+        <div class="card-category" style="background-image: url(
+          <% if cocktail.photo.attached? %>
+            <%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+          <% elsif !cocktail.image_url.nil? %>
+            <%= cocktail.image_url %>
+          <% else %>
+            <%= image_path("default.jpg") %>
+          <% end %>
+          )">
           <%= cocktail.name %>
         </div>
         <% end %>
