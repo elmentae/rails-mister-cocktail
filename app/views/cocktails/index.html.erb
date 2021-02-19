@@ -4,7 +4,7 @@
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://cdn4.iconfinder.com/data/icons/business-characters-3/66/55-512.png", class: "avatar rounded-circle" %>
   <% end %>
-<%# button on the right %>
+<%# button on the %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="btn btn-primary rounded">
@@ -15,12 +15,12 @@
 </div>
 
 <%# CARDS CONTAINER %>
-<div class="container text-center">
+<div class="container text-center my-2">
   <div class="row">
 
     <% @cocktail.each do |cocktail| %>
     <%# INDIVIDUAL CARDS %>
-      <div class="col-lg-3 py-2">
+      <div class="col-lg-3 p-3">
       <%= link_to cocktail_path(cocktail), class: "text-white text-decoration-none" do %>
         <div class="card-category" style="background-image: url(
           <% if cocktail.photo.attached? %>

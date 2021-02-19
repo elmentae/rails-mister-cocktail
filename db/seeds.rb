@@ -1,19 +1,11 @@
+# CLEARS THE DB
 Ingredient.destroy_all
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "coke")
-Ingredient.create(name: "rum")
-Ingredient.create(name: "salt")
-Ingredient.create(name: "gin")
+# READS AND PARSES DATA FROM API
+url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+ingredients = JSON.parse(URI.open(url).read)
 
-
-# url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-
-# ingredients = JSON.parse(open(url).read)
-
-# ingredients["drinks"].each do |ingredient|
-#   Ingredient.create!(ingredient.first)
-# end
-
+# CREATES MODEL INSTANCES BASED ON RECEIVED DATA
+ingredients["drinks"].each do |ingredient|
+  Ingredient.create!(name: ingredient["strIngredient1"])
+end
