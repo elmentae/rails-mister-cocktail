@@ -21,18 +21,18 @@
     <% @cocktail.each do |cocktail| %>
     <%# INDIVIDUAL CARDS %>
       <div class="col-lg-3 p-3">
-      <%= link_to cocktail_path(cocktail), class: "text-white text-decoration-none" do %>
-        <div class="card-category" style="background-image: url(
-          <% if cocktail.photo.attached? %>
-            <%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-          <% elsif cocktail.image_url != "" %>
-            <%= cocktail.image_url %>
-          <% else %>
-            <%= image_path('default.jpg') %>
-          <% end %>
-          )">
-          <%= cocktail.name %>
-        </div>
+        <%= link_to cocktail_path(cocktail), class: "text-white text-decoration-none card-mylink" do %>
+          <div class="card-category card-mylink" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+            <% elsif cocktail.image_url != "" %>
+              <%= cocktail.image_url %>
+            <% else %>
+              <%= image_path('default.jpg') %>
+            <% end %>
+            )">
+            <%= cocktail.name %>
+          </div>
         <% end %>
       </div>
     <% end %>
