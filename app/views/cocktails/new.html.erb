@@ -1,8 +1,15 @@
 <div class="text-left mx-auto w-50">
   <%= simple_form_for @cocktail do |f| %>
     <%= f.input :name %>
-    <%= f.input :image_url %>
     <%= f.input :description %>
+    <%= f.input :image_url %>
+    <label class="btn btn-outline-secondary">
+      Add Image
+      <span style="display:none;">
+        <%= f.input :photo, as: :file %>
+      </span>
+    </label>
+    <br>
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>
