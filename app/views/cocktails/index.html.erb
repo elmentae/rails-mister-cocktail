@@ -1,16 +1,29 @@
-<h2>Here are the cocktails!</h2>
-<p> <%= link_to "➕ Add new cocktail", new_cocktail_path %> </p>
-
-<div class="row">
-
-  <% @cocktail.each do |cocktail| %>
-    <div class="col-lg-3 py-2">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image_url %>)">
-        <%= link_to cocktail.name, cocktail_path(cocktail), class: "card-link text-white" %>
-      </div>
-    </div>
+<%# NAVBAR %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://cdn4.iconfinder.com/data/icons/business-characters-3/66/55-512.png", class: "avatar rounded-circle" %>
   <% end %>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="btn btn-primary rounded">
+        <%= link_to "Add cocktail", new_cocktail_path, class: "text-white text-decoration-none" %>
+      </li>
+    </ul>
+  </div>
 </div>
 
+<div class="container text-center">
+  <div class="row">
 
+    <% @cocktail.each do |cocktail| %>
+      <div class="col-lg-3 py-2">
+      <%= link_to cocktail_path(cocktail), class: "text-white text-decoration-none" do %>
+        <div class="card-category" style="background-image: url(<%= cocktail.image_url %>)">
+          <%= cocktail.name %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
