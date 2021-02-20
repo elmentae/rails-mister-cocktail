@@ -2,15 +2,15 @@
 <%# logo on the left %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://cdn4.iconfinder.com/data/icons/business-characters-3/66/55-512.png", class: "avatar rounded-circle" %>
+    <%= image_tag "https://cdn4.iconfinder.com/data/icons/business-characters-3/66/55-512.png", class: "avatar-large avatar-bordered" %>
   <% end %>
 
   <%# title in the middle %>
-  <ul class="navbar-nav">
-      <li>
-        <span class="header-m">Welcome to the Party!</span>
-      </li>
-    </ul>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <%= link_to root_path do %>
+      <%= image_tag "DRINKX!.png", class: "navbar-header" %>
+    <% end %>
+  </div>
 
   <%# button on the %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,8 +28,8 @@
 
     <% @cocktail.each do |cocktail| %>
     <%# INDIVIDUAL CARDS %>
-      <div class="col-lg-3 p-3">
-        <%= link_to cocktail_path(cocktail), class: "text-white text-decoration-none card-mylink" do %>
+      <div class="col-lg-3 p-3 ">
+        <%= link_to cocktail_path(cocktail), class: "text-white text-decoration-none" do %>
           <div class="card-category card-mylink" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(
             <% if cocktail.photo.attached? %>
               <%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>

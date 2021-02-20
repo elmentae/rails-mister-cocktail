@@ -1,19 +1,18 @@
-<div class="m-0 p-0" style="background-image: url(<%= image_path("create_cocktail.png") %>); opacity: 0.6; background-size: cover; height: 100vh">
-  <div class="text-left mx-auto w-50 pt-4" style="opacity: 1">
+<div class="m-0 p-0 opac-a">
+  <div class="text-left mx-auto pt-4 w-50 opac-b">
     <%= simple_form_for @cocktail do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <hr>
-      <%= f.label :image_url, "Add Image URL" %>
-      <%= f.input :image_url, label: false %>
-      <p>OR</p>
+      <%= f.input :name, label_html: { class: "pink" } %>
+      <%= f.input :description, label_html: { class: "pink" } %>
+      <hr class="pink">
+      <%= f.input :image_url, label: "Add Image URL", label_html: { class: "pink" } %>
+      <p class="pink">- OR -</p>
       <label class="btn btn-outline-secondary">
         Add Image from HDD
         <span style="display:none;">
           <%= f.input :photo, as: :file %>
         </span>
       </label>
-      <hr>
+      <hr class="pink">
       <br>
       <%= f.submit class: "btn btn-primary" %>
     <% end %>

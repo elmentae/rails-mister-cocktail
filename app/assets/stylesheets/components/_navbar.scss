@@ -8,5 +8,15 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 56px;
+}
+
+.navbar-header {
+  height: 56px;
+  width: 320px;
+  object-fit: cover;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.2);
+  }
 }
