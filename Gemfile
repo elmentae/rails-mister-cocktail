@@ -56,3 +56,5 @@ gem 'rails-controller-testing', group: [ :test ]
 
 gem "faker", "~> 2.17"
 gem "pg_search", "~> 2.3"
+
+gem "pundit", "~> 2.1"
