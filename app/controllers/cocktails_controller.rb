@@ -1,7 +1,7 @@
 class CocktailsController < ApplicationController
 
   def index
-    @cocktail = Cocktail.all
+    @cocktails = policy_scope(Cocktail).order(created_at: :desc)
   end
 
   def show
@@ -20,6 +20,7 @@ class CocktailsController < ApplicationController
       render :new
     end
   end
+
 
   def destroy
     @cocktail = Cocktail.find(params[:id])
